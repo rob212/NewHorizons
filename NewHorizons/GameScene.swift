@@ -11,9 +11,12 @@ import SpriteKit
 class GameScene: SKScene {
     
     let satelite = SKSpriteNode(imageNamed: "Sat2")
+    let asteroid = SKSpriteNode(imageNamed: "Asteroid")
     
     override func didMoveToView(view: SKView) {
-        
+        addSatelite()
+        addInitialAsteroid()
+        backgroundColor = UIColor.blackColor()
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -24,4 +27,17 @@ class GameScene: SKScene {
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
     }
+    
+    // MARK: Scene initializations
+    
+    func addSatelite() {
+        satelite.position = CGPoint(x: frame.size.width / 2, y: frame.size.height / 2)
+        addChild(satelite)
+    }
+    
+    func addInitialAsteroid() {
+        asteroid.position = CGPoint(x: frame.size.width / 2, y: frame.size.height / 1.3)
+        addChild(asteroid)
+    }
+    
 }
